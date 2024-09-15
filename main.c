@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "pushswap.h"
 
 int atoi(const char *nptr)
 {
