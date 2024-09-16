@@ -1,38 +1,43 @@
+
 #include "pushswap.h"
 
-int atoi(const char *nptr)
+int	parse_num(char *str, t_stack *a)
 {
-	int	res;
-	int	neg;
-	int	i;
+	int i;
+	int bol;
+	int	n;
 
-	neg = 1;
-	res = 0;
 	i = 0;
-	while (nptr[i] == '\n' || nptr[i] == ' ' || nptr[i] == '\t'
-		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
-		i++;
-	if (nptr[i] == '-')
-		neg *= -1;
-	if (nptr[i] == '-' || nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	bol = 1;
+	n = 0;
+	while (str[i])
 	{
-		res = (res * 10) + (nptr[i] - '0');
+		if (bol && str[i] != ' ')
+		{
+			add_to_stack(a, ft_atoi(&str[i]));
+			bol = 0;
+			n++;
+		}
+		if (str[i] == ' ')
+			bol = 1;
 		i++;
 	}
-	return (res * neg);
 }
 
 int	main(int argc, char **argv)
 {
-	char	*stack_a;
-	char	*stack_b;
-	int	tam;
-
-	if (argc == 2)
-		tam = parse_1(argv[1]);
-	else if (argc > 2)
-		tam = parse_2(argv);	
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		stack_size;
+	int		i;
+	
+	i = 1;
+	stack_a = NULL;
+	stack_b = NULL;
+	while (i < argc)
+	{
+		stack_size += parse_num(argv[i], stack_a);
+		i++;
+	}
 	return (0);
 }
