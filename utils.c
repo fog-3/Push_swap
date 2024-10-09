@@ -1,6 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/06 13:44:31 by fernando          #+#    #+#             */
+/*   Updated: 2024/10/07 08:06:08 by fernando         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
-int ft_atoi(const char *nptr)
+void	ft_putnb(int val)
+{
+	char	c;
+
+	if(val == -2147483648){
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (val < 0)
+	{
+		val *= -1;
+		write(1, "-", 1);
+	}
+	if (val > 9)
+	{
+		ft_putnb(val/10);
+	}
+	c = val % 10 + '0';
+	write(1, &c, 1);
+}
+
+int	ft_atoi(const char *nptr)
 {
 	int	res;
 	int	neg;
@@ -22,4 +55,16 @@ int ft_atoi(const char *nptr)
 		i++;
 	}
 	return (res * neg);
+}
+
+void	clean_exit(t_stack **a,  t_stack **b)
+{
+	if (a != NULL)
+	{
+		
+	}
+	if (b != NULL)
+	{
+		ft_free(b);
+	}
 }
