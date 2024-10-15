@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/07 08:20:58 by fernando         ###   ########.fr       */
+/*   Updated: 2024/10/15 18:35:42 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,19 @@
 
 void	ft_free(t_stack **stc)
 {
-	
+	t_stack *tmp;
+	t_stack *aux;
+
+	if (!*stc)
+		return ;
+	aux = *stc;
+	while (aux)
+	{
+		tmp = aux->next;
+		free(aux);
+		aux = tmp;
+	}
+	*stc = NULL;
 }
 
 t_stack	*new_stack(int val)
@@ -27,6 +39,7 @@ t_stack	*new_stack(int val)
 		return (0);
 	nuevo->value = val;
 	nuevo->next = NULL;
+	nuevo->prev = NULL;
 	return(nuevo);
 }
 
@@ -44,9 +57,14 @@ void	add_to_stack(t_stack **stc, int val)
 		return ;
 	}
 	bottom = *stc;
-	
+	while (!bottom)
+	{
+		bottom = bottom->prev;
+	}
+	new->next = bottom->next;
 	bottom->next = new;	
 }
+
 //delete_from_stack
 void	print_stack(t_stack *a, t_stack *b)
 {
