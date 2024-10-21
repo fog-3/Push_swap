@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:31 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/07 08:06:08 by fernando         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:55:45 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putnb(int val)
 	write(1, &c, 1);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(t_stack **a, const char *nptr)
 {
 	int	res;
 	int	neg;
@@ -51,6 +51,7 @@ int	ft_atoi(const char *nptr)
 		i++;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
+		chk_enteros(res, nptr[i], neg, a);
 		res = (res * 10) + (nptr[i] - '0');
 		i++;
 	}
@@ -60,11 +61,10 @@ int	ft_atoi(const char *nptr)
 void	clean_exit(t_stack **a,  t_stack **b)
 {
 	if (a != NULL)
-	{
-		
-	}
+		ft_free(a);
 	if (b != NULL)
-	{
 		ft_free(b);
-	}
+	a = NULL;
+	b = NULL;
+	exit(0);
 }

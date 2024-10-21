@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/07 08:16:45 by fernando         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:10:20 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,22 @@ typedef struct s_stack
 	struct s_stack *prev;
 } t_stack;
 
-int 	ft_atoi(const char *nptr);
-void	print_stack(t_stack *a, t_stack *b);
+/***	Utils	***/
+int 	ft_atoi(t_stack **a, const char *nptr);
 int		parse_num(char *str, t_stack **a);
-void	clean_exit(t_stack **a,  t_stack **b);
+void	ft_putnb(int val);
+
+/***	Stack creation	***/
+void	print_stack(t_stack *a, t_stack *b);
 t_stack	*new_stack(int val);
 void	add_to_stack(t_stack **stc, int val);
 void	ft_free(t_stack **stc);
+
+/***	Handle errors	***/
+void	chk_enteros(int n, char num, int neg, t_stack **a);
+void	chk_args(t_stack **a, char *str);
+void	clean_exit(t_stack **a,  t_stack **b);
+
+/***	Operations	***/
 
 #endif

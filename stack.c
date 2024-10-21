@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/15 18:35:42 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/10/21 21:22:14 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_stack	*new_stack(int val)
 	if (!nuevo)
 		return (0);
 	nuevo->value = val;
+	//nuevo->index = 0;
 	nuevo->next = NULL;
 	nuevo->prev = NULL;
 	return(nuevo);
@@ -51,18 +52,20 @@ void	add_to_stack(t_stack **stc, int val)
 	new = new_stack(val);
 	if (!new)
 		return ;
-	if (!*stc)
+	if (*stc == NULL)
 	{
 		*stc = new;
 		return ;
 	}
 	bottom = *stc;
-	while (!bottom)
+	while (bottom->prev != NULL)
 	{
+		bottom->index += 1;
 		bottom = bottom->prev;
 	}
-	new->next = bottom->next;
-	bottom->next = new;	
+	new->next = bottom;
+	bottom->prev = new;
+	bottom->index = 1;
 }
 
 //delete_from_stack
@@ -76,13 +79,15 @@ void	print_stack(t_stack *a, t_stack *b)
 	while (a != NULL)
 	{
 		ft_putnb(a->value);
+		write(1, "=", 1);
+		ft_putnb(a->index);
 		if (b != NULL)
 		{
 			write(1, " ", 1);
 			ft_putnb(b->value);
-			b = b->next;
+			b = b->prev;
 		}
-		a = a->next;
+		a = a->prev;
 		write(1, "\n", 1);
 	}
 	write (1, "- -\na b\n", 8);

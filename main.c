@@ -3,20 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/15 18:30:46 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/10/21 21:14:58 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "pushswap.h"
 
+/* void	ft_sort(t_stack **a, t_stack **b)
+{
+	if (!stack_sorted(*a))
+	{
+		if (stack_len(*a) == 1)
+			sa(a, 0);
+		else if (stack_len(*a) == 3)
+			tiny_sort(&a);
+		else
+			push_swap(&a, &b);
+	}
+} */
+
 int	parse_num(char *str, t_stack **a)
 {
-	int i;
-	int bol;
+	int	i;
+	int	bol;
 	int	n;
 
 	i = 0;
@@ -26,7 +39,9 @@ int	parse_num(char *str, t_stack **a)
 	{
 		if (bol && str[i] != ' ')
 		{
-			add_to_stack(a, ft_atoi(&str[i]));
+			chk_args(a, &str[i]);
+			add_to_stack(a, ft_atoi(a, &str[i]));
+			//print_stack(*a, NULL);
 			if (!a)
 				clean_exit(a, 0);
 			bol = 0;
@@ -48,12 +63,14 @@ int	main(int argc, char **argv)
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return(1);
 	while (i < argc)
 	{
 		stack_size += parse_num(argv[i], &stack_a);
 		i++;
 	}
-	//ft_sort(stack_a, stack_b);
+	//ft_sort(&stack_a, &stack_b);
 	print_stack(stack_a, stack_b);
 	ft_free(&stack_a);
 	ft_free(&stack_b);
