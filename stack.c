@@ -6,13 +6,14 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/21 21:22:14 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:53:49 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "pushswap.h"
 
+/*Se usa para liberar la memoria del stack*/
 void	ft_free(t_stack **stc)
 {
 	t_stack *tmp;
@@ -30,6 +31,7 @@ void	ft_free(t_stack **stc)
 	*stc = NULL;
 }
 
+/*Crea un nuevo stack vacío*/
 t_stack	*new_stack(int val)
 {
 	t_stack *nuevo;
@@ -38,16 +40,17 @@ t_stack	*new_stack(int val)
 	if (!nuevo)
 		return (0);
 	nuevo->value = val;
-	//nuevo->index = 0;
+	nuevo->index = 0;
 	nuevo->next = NULL;
 	nuevo->prev = NULL;
 	return(nuevo);
 }
 
+/*Añade un nodo con el valor que se le pasa por parámetro*/
 void	add_to_stack(t_stack **stc, int val)
 {
 	t_stack *new;
-	t_stack *bottom;
+	t_stack *last_node;
 
 	new = new_stack(val);
 	if (!new)
@@ -57,18 +60,17 @@ void	add_to_stack(t_stack **stc, int val)
 		*stc = new;
 		return ;
 	}
-	bottom = *stc;
-	while (bottom->prev != NULL)
-	{
-		bottom->index += 1;
-		bottom = bottom->prev;
-	}
-	new->next = bottom;
-	bottom->prev = new;
-	bottom->index = 1;
+	last_node = *stc;
+	while (last_node->next != NULL)
+		last_node = last_node->next;
+	new->prev = last_node;
+	new->index = last_node->index + 1;
+	last_node->next = new;
 }
 
 //delete_from_stack
+/*Función utilizada sobre todo para el debug, imprime los stack
+ *que se le pasen por parámetro*/
 void	print_stack(t_stack *a, t_stack *b)
 {
 	t_stack	*aux_a;
@@ -76,21 +78,27 @@ void	print_stack(t_stack *a, t_stack *b)
 
 	aux_b = b;
 	aux_a = a;
-	while (a != NULL)
+	while (aux_a != NULL)
 	{
-		ft_putnb(a->value);
+		ft_putnb(aux_a->value);
 		write(1, "=", 1);
-		ft_putnb(a->index);
-		if (b != NULL)
+		ft_putnb(aux_a->index);
+		if (aux_b != NULL)
 		{
 			write(1, " ", 1);
-			ft_putnb(b->value);
-			b = b->prev;
+			ft_putnb(aux_b->value);
+			aux_b = aux_b->next;
 		}
-		a = a->prev;
+		aux_a = aux_a->next;
 		write(1, "\n", 1);
 	}
 	write (1, "- -\na b\n", 8);
-	b = aux_b;
-	a = aux_a;
+}
+
+/*Calcula la longitud del stack*/
+int	stack_len(t_stack *a)
+{
+	while (a->next)
+		a = a->next;
+	return (a->index + 1);
 }

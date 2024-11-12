@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/21 19:10:20 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:57:34 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ void	print_stack(t_stack *a, t_stack *b);
 t_stack	*new_stack(int val);
 void	add_to_stack(t_stack **stc, int val);
 void	ft_free(t_stack **stc);
+int		stack_len(t_stack *a);
 
 /***	Handle errors	***/
 void	chk_enteros(int n, char num, int neg, t_stack **a);
 void	chk_args(t_stack **a, char *str);
-void	clean_exit(t_stack **a,  t_stack **b);
+void	clean_exit(t_stack **a,  t_stack **b, int e);
 
 /***	Operations	***/
 

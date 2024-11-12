@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:50:00 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/21 21:19:11 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:42:18 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	in_stack(t_stack *a, int n)
 	{
 		if (aux->value == n)
 			return (1);
-		aux = aux->prev;
+		aux = aux->next;
 	}
 	return (0);
 }
@@ -38,7 +38,7 @@ void	chk_enteros(int n, char num, int neg, t_stack **a)
 	if (res > 2147483647 || res < -2147483648)
 	{
 		write(2, "Error\n", 6);
-		clean_exit(a, NULL);
+		clean_exit(a, NULL, 1);
 	}
 }
 
@@ -49,18 +49,20 @@ void	chk_args(t_stack **a, char *str)
 	int i;
 
 	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
 	while (str[i] && str[i] != ' ')
 	{
-		if ((str[i] < '0' || str[i] > '9') && str[i] != '-')
+		if (str[i] < '0' || str[i] > '9')
 		{
 			write(2, "Error\n", 6);
-			clean_exit(a, NULL);
+			clean_exit(a, NULL, 1);
 		}
 		i++;
 	}
 	if (in_stack(*a, ft_atoi(a, &str[0])))
 	{
 		write(2, "Error\n", 6);
-		clean_exit(a, NULL);
+		clean_exit(a, NULL, 1);
 	}
 }

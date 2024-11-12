@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:31 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/21 19:55:45 by fernando         ###   ########.fr       */
+/*   Updated: 2024/10/22 18:46:23 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_atoi(t_stack **a, const char *nptr)
 	return (res * neg);
 }
 
-void	clean_exit(t_stack **a,  t_stack **b)
+void	clean_exit(t_stack **a,  t_stack **b, int e)
 {
 	if (a != NULL)
 		ft_free(a);
@@ -66,5 +66,5 @@ void	clean_exit(t_stack **a,  t_stack **b)
 		ft_free(b);
 	a = NULL;
 	b = NULL;
-	exit(0);
+	exit(e);
 }

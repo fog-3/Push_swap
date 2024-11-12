@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/10/21 21:14:58 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:43:49 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ int	parse_num(char *str, t_stack **a)
 		{
 			chk_args(a, &str[i]);
 			add_to_stack(a, ft_atoi(a, &str[i]));
-			//print_stack(*a, NULL);
 			if (!a)
-				clean_exit(a, 0);
+				clean_exit(a, 0, 1);
 			bol = 0;
 			n++;
 		}
