@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/12 09:43:49 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/16 18:40:11 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	if (!stack_sorted(*a))
 	{
 		if (stack_len(*a) == 1)
-			sa(a, 0);
+			swap(a);
 		else if (stack_len(*a) == 3)
 			tiny_sort(&a);
 		else
@@ -70,6 +70,13 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	//ft_sort(&stack_a, &stack_b);
+	swap(&stack_a);
+	push(&stack_b, &stack_a);
+	push(&stack_b, &stack_a);
+	sswap(&stack_a, &stack_b);
+	rrotate(&stack_a, &stack_b);
+	print_stack(stack_a, stack_b);
+	inv_rrot(&stack_a, &stack_b);
 	print_stack(stack_a, stack_b);
 	ft_free(&stack_a);
 	ft_free(&stack_b);

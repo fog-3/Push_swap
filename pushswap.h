@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/12 09:57:34 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:31:36 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_stack
 int 	ft_atoi(t_stack **a, const char *nptr);
 int		parse_num(char *str, t_stack **a);
 void	ft_putnb(int val);
+t_stack *extract(t_stack **a);
 
 /***	Stack creation	***/
 void	print_stack(t_stack *a, t_stack *b);
@@ -46,5 +47,12 @@ void	chk_args(t_stack **a, char *str);
 void	clean_exit(t_stack **a,  t_stack **b, int e);
 
 /***	Operations	***/
+void	swap(t_stack **a);
+void	sswap(t_stack **a, t_stack **b);
+void	push(t_stack **a, t_stack **b);
+void	rotate(t_stack **a);
+void	rrotate(t_stack **a, t_stack **b);
+void	inv_rot(t_stack **a);
+void	inv_rrot(t_stack **a, t_stack **b);
 
 #endif

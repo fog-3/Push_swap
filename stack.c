@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/12 09:53:49 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:30:02 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,24 @@ void	print_stack(t_stack *a, t_stack *b)
 		ft_putnb(aux_a->index);
 		if (aux_b != NULL)
 		{
-			write(1, " ", 1);
+			write(1, "\t", 1);
 			ft_putnb(aux_b->value);
+			write(1, "=", 1);
+			ft_putnb(aux_a->index);
 			aux_b = aux_b->next;
 		}
 		aux_a = aux_a->next;
 		write(1, "\n", 1);
 	}
-	write (1, "- -\na b\n", 8);
+	write (1, " -\t -\n a\t b\n", 12);
 }
 
 /*Calcula la longitud del stack*/
 int	stack_len(t_stack *a)
 {
 	while (a->next)
+	{
 		a = a->next;
+	}
 	return (a->index + 1);
 }
