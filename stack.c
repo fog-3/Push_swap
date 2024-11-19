@@ -6,14 +6,16 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/13 18:30:02 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/19 08:03:51 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "pushswap.h"
 
-/*Se usa para liberar la memoria del stack*/
+/* Funtion that free the memory use of the stack
+ * that is pased as parameter 
+ */
 void	ft_free(t_stack **stc)
 {
 	t_stack *tmp;
@@ -31,7 +33,7 @@ void	ft_free(t_stack **stc)
 	*stc = NULL;
 }
 
-/*Crea un nuevo stack vacío*/
+/* Create a new empty node */
 t_stack	*new_stack(int val)
 {
 	t_stack *nuevo;
@@ -46,7 +48,7 @@ t_stack	*new_stack(int val)
 	return(nuevo);
 }
 
-/*Añade un nodo con el valor que se le pasa por parámetro*/
+/* Add a node with the value passed as parameter */
 void	add_to_stack(t_stack **stc, int val)
 {
 	t_stack *new;
@@ -68,9 +70,9 @@ void	add_to_stack(t_stack **stc, int val)
 	last_node->next = new;
 }
 
-//delete_from_stack
-/*Función utilizada sobre todo para el debug, imprime los stack
- *que se le pasen por parámetro*/
+/* Function that is used overall to debug, it prints the stack
+ * that is passed as parameter.
+ */
 void	print_stack(t_stack *a, t_stack *b)
 {
 	t_stack	*aux_a;
@@ -97,7 +99,7 @@ void	print_stack(t_stack *a, t_stack *b)
 	write (1, " -\t -\n a\t b\n", 12);
 }
 
-/*Calcula la longitud del stack*/
+/* It gives the length of the stack */
 int	stack_len(t_stack *a)
 {
 	while (a->next)

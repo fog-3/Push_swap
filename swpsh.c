@@ -6,14 +6,14 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:21:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/13 18:44:03 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/19 08:23:37 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-//Sirve para: sa(t_stack **a), sb(t_stack **b)
-void	swap(t_stack **a)
+// Usage: sa: swap(a, 0), sb: swap(b, 1)
+void	swap(t_stack **a, int n)
 {
 	t_stack	*aux1;
 	t_stack	*aux2;
@@ -23,6 +23,10 @@ void	swap(t_stack **a)
 		write(2, "Error: no se puede hacer swap a un stack con menos de 2 nodos\n", 62);
 		return ;	
 	}
+	if (!n)
+		write(1, "sa\n", 3);
+	else if (n > 0)
+		write(1, "sb\n", 3);
 	aux1 = *a;
 	aux2 = (*a)->next;
 	aux1->next = aux2->next;
@@ -34,20 +38,25 @@ void	swap(t_stack **a)
 	*a = aux2;
 }
 
-//ss(t_stack **a, t_stack **b)
+//sswap(t_stack **a, t_stack **b): ss
 void	sswap(t_stack **a, t_stack **b)
 {
 	write(1, "ss\n", 3);
-	swap(a);
-	swap(b);
+	swap(a, -1);
+	swap(b, -1);
 }
 
-/* Devuelve el primer nodo del stack desvinculado */
+/* Return the first node of the stack whithout prev and next */
 t_stack *extract(t_stack **a)
 {
 	t_stack	*res;
 	
 	res = *a;
+	if (res->next == NULL)
+	{
+		*a = NULL;
+		return (res);
+	}
 	res = res->next;
 	while (res)
 	{
@@ -61,12 +70,16 @@ t_stack *extract(t_stack **a)
 	return(res);
 }
 
-//Sirve para: pa, y pb
-void	push(t_stack **a, t_stack **b)
+// Usage: pa = push(a, b, 0), y pb = push(b, a, 1)
+void	push(t_stack **a, t_stack **b, int n)
 {
 	t_stack	*aux_a;
 	t_stack	*aux_b;
 
+	if (!n)
+		write(1, "pa\n", 3);
+	else if (n > 0)
+		write(1, "pb\n", 3);
 	aux_a = *a;
 	aux_b = extract(b);
 	if (aux_a == NULL)

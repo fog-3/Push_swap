@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/14 14:31:36 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/19 07:52:32 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 
 /***	Utils	***/
 int 	ft_atoi(t_stack **a, const char *nptr);
-int		parse_num(char *str, t_stack **a);
+void	parse_num(char *str, t_stack **a);
 void	ft_putnb(int val);
 t_stack *extract(t_stack **a);
 
@@ -46,13 +46,20 @@ void	chk_enteros(int n, char num, int neg, t_stack **a);
 void	chk_args(t_stack **a, char *str);
 void	clean_exit(t_stack **a,  t_stack **b, int e);
 
-/***	Operations	***/
-void	swap(t_stack **a);
+/***	Operations	 ***/
+void	swap(t_stack **a, int n);
 void	sswap(t_stack **a, t_stack **b);
-void	push(t_stack **a, t_stack **b);
-void	rotate(t_stack **a);
+void	push(t_stack **a, t_stack **b, int n);
+void	rotate(t_stack **a, int n);
 void	rrotate(t_stack **a, t_stack **b);
-void	inv_rot(t_stack **a);
+void	inv_rot(t_stack **a, int n);
 void	inv_rrot(t_stack **a, t_stack **b);
+
+/***   Sort functions    ***/
+void	tiny_sort(t_stack **a);
+t_stack	*find_highest(t_stack *a);
+int		stack_sorted(t_stack *a);
+void	sort_five(t_stack **a, t_stack **b);
+t_stack	*find_lowest(t_stack *a);
 
 #endif
