@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:21:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/19 08:23:37 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/24 14:24:47 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	swap(t_stack **a, int n)
 	aux1 = *a;
 	aux2 = (*a)->next;
 	aux1->next = aux2->next;
+	if (aux2->next)
+		aux2->next->prev = aux1;
 	aux2->next = aux1;
 	aux1->prev = aux2;
 	aux2->prev = NULL;
@@ -70,7 +72,10 @@ t_stack *extract(t_stack **a)
 	return(res);
 }
 
-// Usage: pa = push(a, b, 0), y pb = push(b, a, 1)
+/* Usage: pa = push(a, b, 0), y pb = push(b, a, 1) 
+ * pa = moves the first node of the stack 'b' to the stack 'a'
+ * pb = moves the first node of the stack 'a' to the stack 'b'
+ */
 void	push(t_stack **a, t_stack **b, int n)
 {
 	t_stack	*aux_a;

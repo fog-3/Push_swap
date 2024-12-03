@@ -1,5 +1,11 @@
 push_swap
-prochecker/
 a.out
 obj/
 push_swap.en.pdf
+Push-Swap-Tester/
+0
+checker*
+push_swap_test*
+README*
+pro_checker
+traces.txt

@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/19 08:03:51 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/26 08:59:13 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_stack	*new_stack(int val)
 		return (0);
 	nuevo->value = val;
 	nuevo->index = 0;
+	nuevo->cost = 0;
+	nuevo->target = 0;
 	nuevo->next = NULL;
 	nuevo->prev = NULL;
 	return(nuevo);
@@ -83,28 +85,21 @@ void	print_stack(t_stack *a, t_stack *b)
 	while (aux_a != NULL)
 	{
 		ft_putnb(aux_a->value);
-		write(1, "=", 1);
-		ft_putnb(aux_a->index);
 		if (aux_b != NULL)
 		{
 			write(1, "\t", 1);
 			ft_putnb(aux_b->value);
-			write(1, "=", 1);
-			ft_putnb(aux_a->index);
 			aux_b = aux_b->next;
 		}
 		aux_a = aux_a->next;
 		write(1, "\n", 1);
 	}
-	write (1, " -\t -\n a\t b\n", 12);
-}
-
-/* It gives the length of the stack */
-int	stack_len(t_stack *a)
-{
-	while (a->next)
+	while (aux_b != NULL)
 	{
-		a = a->next;
+		write(1, "\t\t", 1);
+		ft_putnb(aux_b->value);
+		aux_b = aux_b->next;
+		write(1, "\n", 1);
 	}
-	return (a->index + 1);
+	write (1, " -\t -\n a\t b\n", 12);
 }

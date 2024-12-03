@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/19 07:52:32 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/26 08:58:25 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@
 
 typedef struct s_stack
 {
-	int 		value;
-	int			index;
-	//int		pos;
-	//int		target;
-	//int		cost_a;
-	//int		cost_b;
+	int 			value;
+	int				index;
+	int				target;
+	int				cost;
 	struct s_stack	*next;
-	struct s_stack *prev;
+	struct s_stack	*prev;
 } t_stack;
 
 /***	Utils	***/
@@ -61,5 +59,9 @@ t_stack	*find_highest(t_stack *a);
 int		stack_sorted(t_stack *a);
 void	sort_five(t_stack **a, t_stack **b);
 t_stack	*find_lowest(t_stack *a);
+void	push_swap(t_stack **a, t_stack **b);
+void	target_node(t_stack *a, t_stack **b);
+void	calc_cost(t_stack *a, t_stack **b);
+void	mv_lowcost(t_stack **a, t_stack **b);
 
 #endif

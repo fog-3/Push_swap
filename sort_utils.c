@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:06:47 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/19 08:32:22 by fernando         ###   ########.fr       */
+/*   Updated: 2024/11/23 21:53:56 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	stack_sorted(t_stack *a)
 	return (1);
 }
 
+/* Sort a stack with less than 5 nodes */
 void	sort_five(t_stack **a, t_stack **b)
 {
 	int		len;
