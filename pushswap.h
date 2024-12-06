@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/26 08:58:25 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:26:51 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,13 @@ int		stack_sorted(t_stack *a);
 void	sort_five(t_stack **a, t_stack **b);
 t_stack	*find_lowest(t_stack *a);
 void	push_swap(t_stack **a, t_stack **b);
-void	target_node(t_stack *a, t_stack **b);
+void	target_node_b(t_stack *a, t_stack **b);
+void    target_node_a(t_stack *b, t_stack **a);
 void	calc_cost(t_stack *a, t_stack **b);
-void	mv_lowcost(t_stack **a, t_stack **b);
+void	mv_lowcost_b(t_stack **a, t_stack **b);
+void	mv_lowcost_a(t_stack **a, t_stack **b);
+t_stack	*find_low_cost(t_stack *a);
+void    ft_sort_general(t_stack **a, t_stack **b, int n);
+int		lc_target(int target, int init_len);
 
 #endif

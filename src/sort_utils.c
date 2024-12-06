@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:06:47 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/23 21:53:56 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:27:39 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
+/* It returns the node with the highest value */
 t_stack	*find_highest(t_stack *a)
 {
 	t_stack	*res;
@@ -26,6 +27,7 @@ t_stack	*find_highest(t_stack *a)
 	return (res);
 }
 
+/* It returns the node with the lowest value */
 t_stack	*find_lowest(t_stack *a)
 {
 	t_stack	*res;

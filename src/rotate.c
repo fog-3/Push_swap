@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:08:20 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/24 12:23:20 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/06 11:05:11 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 //rotate(t_stack **a): ra = rotate(a, 0)
 // and rb = rotate(b, 1)

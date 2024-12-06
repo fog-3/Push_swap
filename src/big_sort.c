@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 08:46:56 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/26 10:38:08 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:20:58 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 // Compares the node a with the node b and the val catched in the other function
 int	aux_target_node(t_stack *a, t_stack *b, int best_val)
@@ -29,7 +29,7 @@ int	aux_target_node(t_stack *a, t_stack *b, int best_val)
 }
 
 // Gives a target node to each node of b
-void	target_node(t_stack *a, t_stack **b)
+void	target_node_b(t_stack *a, t_stack **b)
 {
 	t_stack	*aux_b;
 	t_stack *aux_a;
@@ -50,47 +50,6 @@ void	target_node(t_stack *a, t_stack **b)
 		aux_a = a;
 		aux_b = aux_b->next;
 	}
-}
-
-// Calculates the cost of every node of b to goes to the node a
-void	calc_cost(t_stack *a, t_stack **b)
-{
-	t_stack	*aux;
-	int		a_len;
-	int		b_len;
-	int		cost_a;
-	
-	aux = *b;
-	cost_a = 0;
-	a_len = stack_len(a);
-	b_len = stack_len(*b);
-	while (aux)
-	{
-		if (aux->target > (a_len/2))
-			cost_a = a_len - aux->target;
-		else
-			cost_a = aux->target;
-		if (aux->index > (b_len/2))
-			aux->cost = b_len - aux->index + cost_a;
-		else
-			aux->cost = aux->index + cost_a;
-		aux = aux->next;
-	}
-}
-
-// Function that gives the node with the lower cost
-t_stack	*find_low_cost(t_stack *a)
-{
-	t_stack	*res;
-
-	res = a;
-	while (a != NULL)
-	{
-		if (a->cost < res->cost)
-			res = a;
-		a = a->next;
-	}
-	return (res);
 }
 
 /* Auxiliar function to change the values of the target node */
@@ -132,8 +91,9 @@ void	ft_conditions(t_stack *lc_node, t_stack **a, t_stack **b, int a_len)
 	}
 }
 
-// Function that moves the node that has the lower cost
-void	mv_lowcost(t_stack **a, t_stack **b)
+/* Function that moves the node that has the lower cost from b to a
+*/
+void	mv_lowcost_b(t_stack **a, t_stack **b)
 {
 	t_stack	*lc_node;
 	int		init_len;

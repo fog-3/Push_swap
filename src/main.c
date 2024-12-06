@@ -3,23 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/26 09:54:31 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/06 17:12:35 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "pushswap.h"
-
-/* It gives the length of the stack */
-int	stack_len(t_stack *a)
-{
-	while (a->next)
-		a = a->next;
-	return (a->index + 1);
-}
+#include "../pushswap.h"
 
 // This is the general function to order stacks with more than 5 nodes
 void	push_swap(t_stack **a, t_stack **b)
@@ -28,15 +20,13 @@ void	push_swap(t_stack **a, t_stack **b)
 	t_stack	*lowest_node;
 
 	init_len = stack_len(*a);
+	push(b, a, 1);
+	push(b, a, 1);
 	while (stack_len(*a) > 3)
-		push(b, a, 1);
+		ft_sort_general(a, b, 1);
 	tiny_sort(a);
 	while (stack_len(*a) < init_len)
-	{
-		target_node(*a, b);
-		calc_cost(*a, b);
-		mv_lowcost(a, b);
-	}
+		ft_sort_general(a, b, 0);
 	lowest_node = find_lowest(*a);
 	while (lowest_node->index > 0)
 	{
@@ -44,7 +34,6 @@ void	push_swap(t_stack **a, t_stack **b)
 			inv_rot(a, 0);
 		else
 			rotate(a, 0);
-		lowest_node = find_lowest(*a);
 	}
 }
 

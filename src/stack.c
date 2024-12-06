@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/26 08:59:13 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/06 14:33:52 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 /* Funtion that free the memory use of the stack
  * that is pased as parameter 
@@ -102,4 +102,14 @@ void	print_stack(t_stack *a, t_stack *b)
 		write(1, "\n", 1);
 	}
 	write (1, " -\t -\n a\t b\n", 12);
+}
+
+/* It gives the length of the stack */
+int	stack_len(t_stack *a)
+{
+	if (!a)
+		return (0);
+	while (a->next)
+		a = a->next;
+	return (a->index + 1);
 }

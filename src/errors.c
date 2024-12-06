@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:50:00 by fernando          #+#    #+#             */
-/*   Updated: 2024/11/24 12:26:01 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/06 11:05:00 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 /*Devuelve 1 si existe el número dentro del stack*/
 int	in_stack(t_stack *a, int n)
