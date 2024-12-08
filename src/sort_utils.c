@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:06:47 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 15:27:39 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:09:23 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,21 @@ void	sort_five(t_stack **a, t_stack **b)
 	int		len;
 	int		cnt;
 	t_stack	*lowest_node;
-	
+
 	len = stack_len(*a);
 	cnt = len;
-	while(len > 3)
+	while (len > 3)
 	{
 		lowest_node = find_lowest(*a);
 		if (lowest_node->index != 0)
 		{
-			if (lowest_node->index > (len/2))
+			if (lowest_node->index > (len / 2))
 				inv_rot(a, 0);
 			else
 				rotate(a, 0);
 		}
 		else
-			push(b, a, 1);	
+			push(b, a, 1);
 		len = stack_len(*a);
 	}
 	tiny_sort(a);

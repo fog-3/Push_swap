@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swpsh.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:21:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 11:05:31 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:07:01 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	swap(t_stack **a, int n)
 {
 	t_stack	*aux1;
 	t_stack	*aux2;
-	
+
 	if (stack_len(*a) < 2)
 	{
-		write(2, "Error: no se puede hacer swap a un stack con menos de 2 nodos\n", 62);
-		return ;	
+		write(2, "Error: you can't swap less than 2 elements\n", 43);
+		return ;
 	}
 	if (!n)
 		write(1, "sa\n", 3);
@@ -49,10 +49,10 @@ void	sswap(t_stack **a, t_stack **b)
 }
 
 /* Return the first node of the stack whithout prev and next */
-t_stack *extract(t_stack **a)
+t_stack	*extract(t_stack **a)
 {
 	t_stack	*res;
-	
+
 	res = *a;
 	if (res->next == NULL)
 	{
@@ -69,7 +69,7 @@ t_stack *extract(t_stack **a)
 	(*a) = (*a)->next;
 	(*a)->prev = NULL;
 	res->next = NULL;
-	return(res);
+	return (res);
 }
 
 /* Usage: pa = push(a, b, 0), y pb = push(b, a, 1) 

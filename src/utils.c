@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:31 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 11:05:39 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:13:28 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_putnb(int val)
 {
 	char	c;
 
-	if(val == -2147483648){
+	if (val == -2147483648)
+	{
 		write(1, "-2147483648", 11);
 		return ;
 	}
@@ -27,7 +28,7 @@ void	ft_putnb(int val)
 	}
 	if (val > 9)
 	{
-		ft_putnb(val/10);
+		ft_putnb(val / 10);
 	}
 	c = val % 10 + '0';
 	write(1, &c, 1);
@@ -58,7 +59,7 @@ int	ft_atoi(t_stack **a, const char *nptr)
 	return (res * neg);
 }
 
-void	clean_exit(t_stack **a,  t_stack **b, int e)
+void	clean_exit(t_stack **a, t_stack **b, int e)
 {
 	if (a != NULL)
 		ft_free(a);

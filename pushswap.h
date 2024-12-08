@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 16:26:51 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:02:53 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 typedef struct s_stack
 {
-	int 			value;
+	int				value;
 	int				index;
 	int				target;
 	int				cost;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-} t_stack;
+}	t_stack;
 
 /***	Utils	***/
-int 	ft_atoi(t_stack **a, const char *nptr);
+int		ft_atoi(t_stack **a, const char *nptr);
 void	parse_num(char *str, t_stack **a);
 void	ft_putnb(int val);
-t_stack *extract(t_stack **a);
+t_stack	*extract(t_stack **a);
 
 /***	Stack creation	***/
 void	print_stack(t_stack *a, t_stack *b);
@@ -42,7 +42,7 @@ int		stack_len(t_stack *a);
 /***	Handle errors	***/
 void	chk_enteros(int n, char num, int neg, t_stack **a);
 void	chk_args(t_stack **a, char *str);
-void	clean_exit(t_stack **a,  t_stack **b, int e);
+void	clean_exit(t_stack **a, t_stack **b, int e);
 
 /***	Operations	 ***/
 void	swap(t_stack **a, int n);
@@ -60,13 +60,11 @@ int		stack_sorted(t_stack *a);
 void	sort_five(t_stack **a, t_stack **b);
 t_stack	*find_lowest(t_stack *a);
 void	push_swap(t_stack **a, t_stack **b);
-void	target_node_b(t_stack *a, t_stack **b);
-void    target_node_a(t_stack *b, t_stack **a);
+void	target_node(t_stack *a, t_stack **b);
 void	calc_cost(t_stack *a, t_stack **b);
-void	mv_lowcost_b(t_stack **a, t_stack **b);
-void	mv_lowcost_a(t_stack **a, t_stack **b);
+void	mv_lowcost(t_stack **a, t_stack **b);
 t_stack	*find_low_cost(t_stack *a);
-void    ft_sort_general(t_stack **a, t_stack **b, int n);
+void	ft_sort_general(t_stack **a, t_stack **b);
 int		lc_target(int target, int init_len);
 
 #endif

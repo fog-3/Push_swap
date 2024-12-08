@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:50:00 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 11:05:00 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:14:13 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /*Devuelve 1 si existe el número dentro del stack*/
 int	in_stack(t_stack *a, int n)
 {
-	t_stack *aux;
-	
+	t_stack	*aux;
+
 	aux = a;
 	while (aux != NULL)
 	{
@@ -32,7 +32,7 @@ int	in_stack(t_stack *a, int n)
 void	chk_enteros(int n, char num, int neg, t_stack **a)
 {
 	long int	res;
-	
+
 	res = (long int)(n * 10) + (long int)(num - '0');
 	res *= neg;
 	if (res > 2147483647 || res < -2147483648)
@@ -46,7 +46,7 @@ void	chk_enteros(int n, char num, int neg, t_stack **a)
   caso de que no imprime el mensaje de error y termina la ejecución*/
 void	chk_args(t_stack **a, char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')

@@ -3,34 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 17:12:35 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:15:43 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../pushswap.h"
 
 // This is the general function to order stacks with more than 5 nodes
 void	push_swap(t_stack **a, t_stack **b)
 {
-	int 	init_len;
+	int		init_len;
 	t_stack	*lowest_node;
+	int		mean;
 
 	init_len = stack_len(*a);
-	push(b, a, 1);
-	push(b, a, 1);
+	mean = find_highest(*a)->value;
+	mean = (mean + find_lowest(*a)->value) / 2;
 	while (stack_len(*a) > 3)
-		ft_sort_general(a, b, 1);
+	{
+		push(b, a, 1);
+		if (stack_len(*b) > 1 && (*b)->value > mean)
+			rotate(b, 1);
+	}
 	tiny_sort(a);
 	while (stack_len(*a) < init_len)
-		ft_sort_general(a, b, 0);
+		ft_sort_general(a, b);
 	lowest_node = find_lowest(*a);
 	while (lowest_node->index > 0)
 	{
-		if (lowest_node->index > (init_len/2))
+		if (lowest_node->index > (init_len / 2))
 			inv_rot(a, 0);
 		else
 			rotate(a, 0);
@@ -83,19 +87,18 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		i;
-	
+
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return(1);
+		return (1);
 	while (i < argc)
 	{
 		parse_num(argv[i], &stack_a);
 		i++;
 	}
 	ft_sort(&stack_a, &stack_b);
-	//print_stack(stack_a, stack_b);
 	ft_free(&stack_a);
 	ft_free(&stack_b);
 	return (0);

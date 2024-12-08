@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 14:33:52 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:12:13 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../pushswap.h"
 
@@ -18,8 +17,8 @@
  */
 void	ft_free(t_stack **stc)
 {
-	t_stack *tmp;
-	t_stack *aux;
+	t_stack	*tmp;
+	t_stack	*aux;
 
 	if (!*stc)
 		return ;
@@ -36,7 +35,7 @@ void	ft_free(t_stack **stc)
 /* Create a new empty node */
 t_stack	*new_stack(int val)
 {
-	t_stack *nuevo;
+	t_stack	*nuevo;
 
 	nuevo = (t_stack *)malloc(sizeof(t_stack));
 	if (!nuevo)
@@ -47,14 +46,14 @@ t_stack	*new_stack(int val)
 	nuevo->target = 0;
 	nuevo->next = NULL;
 	nuevo->prev = NULL;
-	return(nuevo);
+	return (nuevo);
 }
 
 /* Add a node with the value passed as parameter */
 void	add_to_stack(t_stack **stc, int val)
 {
-	t_stack *new;
-	t_stack *last_node;
+	t_stack	*new;
+	t_stack	*last_node;
 
 	new = new_stack(val);
 	if (!new)
@@ -78,7 +77,7 @@ void	add_to_stack(t_stack **stc, int val)
 void	print_stack(t_stack *a, t_stack *b)
 {
 	t_stack	*aux_a;
-	t_stack *aux_b;
+	t_stack	*aux_b;
 
 	aux_b = b;
 	aux_a = a;

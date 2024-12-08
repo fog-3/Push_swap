@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 08:46:56 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/06 16:20:58 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:10:49 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	aux_target_node(t_stack *a, t_stack *b, int best_val)
 }
 
 // Gives a target node to each node of b
-void	target_node_b(t_stack *a, t_stack **b)
+void	target_node(t_stack *a, t_stack **b)
 {
 	t_stack	*aux_b;
-	t_stack *aux_a;
+	t_stack	*aux_a;
 	int		best_val;
 
 	aux_b = *b;
@@ -59,20 +59,20 @@ int	lc_target(int target, int init_len)
 		target = 0;
 	else
 		target += 1;
-	return(target);
+	return (target);
 }
 
 /* Auxiliar function of mv_lowcost */
 void	ft_conditions(t_stack *lc_node, t_stack **a, t_stack **b, int a_len)
 {
-	if(lc_node->index > (stack_len(*b)/2) && lc_node->target > (a_len/2))
+	if (lc_node->index > (stack_len(*b) / 2) && lc_node->target > (a_len / 2))
 	{
 		inv_rrot(a, b);
 		lc_node->target = lc_target(lc_node->target, a_len);
 	}
-	else if (lc_node->index > (stack_len(*b)/2))
+	else if (lc_node->index > (stack_len(*b) / 2))
 		inv_rot(b, 1);
-	else if (lc_node->target > (a_len/2))
+	else if (lc_node->target > (a_len / 2))
 	{
 		inv_rot(a, 0);
 		lc_node->target = lc_target(lc_node->target, a_len);
@@ -93,7 +93,7 @@ void	ft_conditions(t_stack *lc_node, t_stack **a, t_stack **b, int a_len)
 
 /* Function that moves the node that has the lower cost from b to a
 */
-void	mv_lowcost_b(t_stack **a, t_stack **b)
+void	mv_lowcost(t_stack **a, t_stack **b)
 {
 	t_stack	*lc_node;
 	int		init_len;

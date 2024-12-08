@@ -2,11 +2,7 @@ push_swap
 a.out
 obj/
 push_swap.en.pdf
-Push-Swap-Tester/
-0
 checker_linux
-checker_Mac
-push_swap_test*
-README*
-pro_checker
+push_swap_visualizer/
 traces.txt
+tester.sh
