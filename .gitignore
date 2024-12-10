@@ -6,3 +6,4 @@ checker_linux
 push_swap_visualizer/
 traces.txt
 tester.sh
+checker

@@ -6,13 +6,13 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:50:00 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:14:13 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/09 21:13:33 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
-/*Devuelve 1 si existe el número dentro del stack*/
+/* It returns 1 if any node of the stack a has the value of n */
 int	in_stack(t_stack *a, int n)
 {
 	t_stack	*aux;
@@ -27,8 +27,8 @@ int	in_stack(t_stack *a, int n)
 	return (0);
 }
 
-/*Mira si el entero más el siguiente dígito de la cadena de carácteres
-  es menor o mayor que el máximo o mínimo entero posible*/
+/* It sees if the next digit of the string gives a int number bigger or smaller 
+   than the maximun integer or the minimun integer that is posible */
 void	chk_enteros(int n, char num, int neg, t_stack **a)
 {
 	long int	res;
@@ -42,8 +42,7 @@ void	chk_enteros(int n, char num, int neg, t_stack **a)
 	}
 }
 
-/*Chequea que el argumento que se está pasando sea correcto en el
-  caso de que no imprime el mensaje de error y termina la ejecución*/
+/* It checks if the argument given is correct */
 void	chk_args(t_stack **a, char *str)
 {
 	int	i;

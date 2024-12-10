@@ -6,11 +6,11 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:38 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:12:13 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:40:47 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
 /* Funtion that free the memory use of the stack
  * that is pased as parameter 

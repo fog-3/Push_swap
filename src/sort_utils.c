@@ -6,11 +6,11 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:06:47 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:09:23 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:40:41 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
 /* It returns the node with the highest value */
 t_stack	*find_highest(t_stack *a)

@@ -6,11 +6,11 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:15:43 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:40:29 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
 // This is the general function to order stacks with more than 5 nodes
 void	push_swap(t_stack **a, t_stack **b)

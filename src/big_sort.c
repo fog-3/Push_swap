@@ -6,11 +6,11 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 08:46:56 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:10:49 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:40:15 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
 // Compares the node a with the node b and the val catched in the other function
 int	aux_target_node(t_stack *a, t_stack *b, int best_val)

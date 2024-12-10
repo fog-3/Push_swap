@@ -6,11 +6,11 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:28:49 by fosuna-g          #+#    #+#             */
-/*   Updated: 2024/12/08 14:08:16 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:39:57 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
 /* Calculates the cost of every node of b to goes over the node a
  * cost = cost_to_be_indx_0_b + cost_to_be_indx_0_a

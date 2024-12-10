@@ -6,11 +6,11 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:31 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:13:28 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:41:01 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
 void	ft_putnb(int val)
 {

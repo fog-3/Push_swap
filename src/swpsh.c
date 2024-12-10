@@ -6,11 +6,11 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:21:41 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:07:01 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:40:55 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "pushswap.h"
 
 // Usage: sa: swap(a, 0), sb: swap(b, 1)
 void	swap(t_stack **a, int n)
