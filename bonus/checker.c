@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:47:18 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/09 21:38:50 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/11 16:59:40 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,27 @@
 
 void	ft_checker(t_stack **a, t_stack **b)
 {
-	//loop until get next line returns null
-	//Get next line
-	//compare and do all you have to do
-	//check if the stack is sorted at the end of the loop
+	char	*str;
+
+	str = get_next_line(0, a, b);
+	while (str)
+	{
+		if (!is_valid(str))
+		{
+			
+		}
+		cmp_str(str, a, b);
+		write(1, "Command: ", 9); // Solo para verificar
+		write(1, str, ft_strlen(str));
+		write(1, "\n", 1);
+		free(str);
+		str = NULL;
+		str = get_next_line(0, a, b);
+	}
+	if (stack_sorted(*a, *b))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 }
 
 /* Parse the argument when it is a single number
@@ -71,8 +88,8 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (argc > 2)
 	{
-		while (argc > i++)
-			parse_num(argv[i], &a_stack);
+		while (i < argc)
+			parse_num(argv[i++], &a_stack);
 	}
 	else
 		parse_num_str(argv[i], &a_stack);

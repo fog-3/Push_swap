@@ -19,7 +19,7 @@ BONUS_SRC = $(wildcard $(BONUS_DIR)*.c)
 # Obtener los .o
 OBJS = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRCS))
 
-BONUS_OBJS = $(patsubst $(BONUS_DIR)%.c, $(BONUS_OBJ_DIR)%.o, $(BONUS_SRCS))
+BONUS_OBJS = $(patsubst $(BONUS_DIR)%.c, $(BONUS_OBJ_DIR)%.o, $(BONUS_SRC))
 
 # Reglas principales
 all: $(NAME)

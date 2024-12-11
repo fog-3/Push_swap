@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:48:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/09 21:05:54 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/11 17:00:02 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_atoi(t_stack **a, const char *num)
 		neg *= -1;
 	if (num[i] == '-' || num[i] == '+')
 		i++;
-	while (num[i] >= '0' && num <= '9')
+	while (num[i] >= '0' && num[i] <= '9')
 	{
 		chk_enteros(res, num[i], neg, a);
 		res = (res * 10) + (num[i] - '0');
@@ -49,4 +49,15 @@ void	clean_exit(t_stack **a, t_stack **b, int e)
 	a = NULL;
 	b = NULL;
 	exit(e);
+}
+
+// It returns the length of the string
+int	ft_strlen(const char *str)
+{
+	int	i;
+	
+	i = 0;
+	while(str[i])
+		i++;
+	return (i);
 }

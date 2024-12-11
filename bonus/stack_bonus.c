@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 21:18:47 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/09 21:35:05 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:42:43 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	add_to_stack(t_stack **stc, int val)
 /* Function that is used overall to debug, it prints the stack
  * that is passed as parameter.
  */
-void	print_stack(t_stack *a, t_stack *b)
+/* void	print_stack(t_stack *a, t_stack *b)
 {
 	t_stack	*aux_a;
 	t_stack	*aux_b;
@@ -99,10 +99,10 @@ void	print_stack(t_stack *a, t_stack *b)
 		write(1, "\n", 1);
 	}
 	write (1, " -\t -\n a\t b\n", 12);
-}
+} */
 
 // Return 1 if the stack is sorted and 0 if it isn't
-int	stack_sorted(t_stack *a)
+int	stack_sorted(t_stack *a, t_stack *b)
 {
 	while (a->next)
 	{
@@ -110,5 +110,7 @@ int	stack_sorted(t_stack *a)
 			return (0);
 		a = a->next;
 	}
+	if (b != NULL)
+		return (0);
 	return (1);
 }
