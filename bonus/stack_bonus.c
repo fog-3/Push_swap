@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 21:18:47 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/10 20:42:43 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:14:12 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,38 +69,6 @@ void	add_to_stack(t_stack **stc, int val)
 	last_node->next = new;
 }
 
-/* Function that is used overall to debug, it prints the stack
- * that is passed as parameter.
- */
-/* void	print_stack(t_stack *a, t_stack *b)
-{
-	t_stack	*aux_a;
-	t_stack	*aux_b;
-
-	aux_b = b;
-	aux_a = a;
-	while (aux_a != NULL)
-	{
-		ft_putnb(aux_a->value);
-		if (aux_b != NULL)
-		{
-			write(1, "\t", 1);
-			ft_putnb(aux_b->value);
-			aux_b = aux_b->next;
-		}
-		aux_a = aux_a->next;
-		write(1, "\n", 1);
-	}
-	while (aux_b != NULL)
-	{
-		write(1, "\t\t", 1);
-		ft_putnb(aux_b->value);
-		aux_b = aux_b->next;
-		write(1, "\n", 1);
-	}
-	write (1, " -\t -\n a\t b\n", 12);
-} */
-
 // Return 1 if the stack is sorted and 0 if it isn't
 int	stack_sorted(t_stack *a, t_stack *b)
 {
@@ -113,4 +81,14 @@ int	stack_sorted(t_stack *a, t_stack *b)
 	if (b != NULL)
 		return (0);
 	return (1);
+}
+
+/* It gives the length of the stack */
+int	stack_len(t_stack *a)
+{
+	if (!a)
+		return (0);
+	while (a->next)
+		a = a->next;
+	return (a->index + 1);
 }

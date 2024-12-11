@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:47:18 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 16:59:40 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:32:38 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,7 @@ void	ft_checker(t_stack **a, t_stack **b)
 	str = get_next_line(0, a, b);
 	while (str)
 	{
-		if (!is_valid(str))
-		{
-			
-		}
 		cmp_str(str, a, b);
-		write(1, "Command: ", 9); // Solo para verificar
-		write(1, str, ft_strlen(str));
-		write(1, "\n", 1);
 		free(str);
 		str = NULL;
 		str = get_next_line(0, a, b);
@@ -45,7 +38,7 @@ void	parse_num(char *num, t_stack **a_stack)
 	chk_args(a_stack, num);
 	add_to_stack(a_stack, ft_atoi(a_stack, num));
 	if (!a_stack)
-		clean_exit(a_stack, 0, 1);
+		clean_exit(a_stack, 0, 1, "Error: error allocating memory\n");
 }
 
 /* Parse the given string imput in case of be given between 
@@ -65,7 +58,7 @@ void	parse_num_str(char *str, t_stack **a_stack)
 			chk_args(a_stack, &str[i]);
 			add_to_stack(a_stack, ft_atoi(a_stack, &str[i]));
 			if (!a_stack)
-				clean_exit(a_stack, 0, 1);
+				clean_exit(a_stack, 0, 1, "Error: error allocating memory\n");
 			bol = 0;
 		}
 		if (str[i] == ' ')
@@ -85,7 +78,7 @@ int	main(int argc, char *argv[])
 	a_stack = NULL;
 	b_stack = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
+		return (0);
 	if (argc > 2)
 	{
 		while (i < argc)

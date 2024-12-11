@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:02:43 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 16:28:16 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:02:27 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_next_line(int fd, t_stack **a, t_stack **b)
 
 	line = NULL;
 	if (read(fd, 0, 0) < 0)
-		clean_exit(a, b, 0);
+		clean_exit(a, b, 0, "Error: the file does not exist\n");
 	line = ft_readline(fd, line);
 	if (!line)
 		return (0);

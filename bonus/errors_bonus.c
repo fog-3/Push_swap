@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:54:51 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/09 21:14:37 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:30:10 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ void	chk_enteros(int n, char num, int neg, t_stack **a)
 	res = (long int)(n * 10) + (long int)(num - '0');
 	res *= neg;
 	if (res > 2147483647 || res < -2147483648)
-	{
-		write(2, "Error\n", 6);
-		clean_exit(a, NULL, 1);
-	}
+		clean_exit(a, NULL, -1, "Error\n");
 }
 
 /* It checks if the argument given is correct */
@@ -53,15 +50,9 @@ void	chk_args(t_stack **a, char *str)
 	while (str[i] && str[i] != ' ')
 	{
 		if (str[i] < '0' || str[i] > '9')
-		{
-			write(2, "Error\n", 6);
-			clean_exit(a, NULL, 1);
-		}
+			clean_exit(a, NULL, -1, "Error\n");
 		i++;
 	}
 	if (in_stack(*a, ft_atoi(a, &str[0])))
-	{
-		write(2, "Error\n", 6);
-		clean_exit(a, NULL, 1);
-	}
+		clean_exit(a, NULL, -1, "Error\n");
 }

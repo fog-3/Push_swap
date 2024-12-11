@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:48:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 17:00:02 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:01:35 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ int	ft_atoi(t_stack **a, const char *num)
 /* This function frees all the memory wich is allocated in this program
 * and finish the execution with the error value e
 */
-void	clean_exit(t_stack **a, t_stack **b, int e)
+void	clean_exit(t_stack **a, t_stack **b, int e, char *msg)
 {
+	write(2, msg, ft_strlen(msg));
 	if (a != NULL)
 		ft_free(a);
 	if (b != NULL)
@@ -60,4 +61,19 @@ int	ft_strlen(const char *str)
 	while(str[i])
 		i++;
 	return (i);
+}
+
+/* It compares two strings and returns the diference between each other */
+int	ft_strcompare(char *s1, char *s2)
+{
+	int	i;
+	
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }
