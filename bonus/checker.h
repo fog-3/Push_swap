@@ -6,12 +6,12 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:43:46 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 18:21:48 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:01:34 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -32,7 +32,7 @@ int		ft_strcompare(char *s1, char *s2);
 void	print_stack(t_stack *a, t_stack *b);
 
 /*** Handle errors ***/
-void	chk_enteros(int n, char num, int neg, t_stack **a);
+void	chk_enteros(long int n, int neg, t_stack **a);
 void	chk_args(t_stack **a, char *str);
 
 /*** Stack functions ***/

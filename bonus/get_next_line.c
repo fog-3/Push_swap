@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:02:43 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 18:02:27 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:03:05 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*join_free(char *str, char buffer)
 		return (0);
 	len = 0;
 	if (str)
-	{		
+	{
 		while (str[len])
 		{
 			aux[len] = str[len];

@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:48:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 18:01:35 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:02:46 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(t_stack **a, const char *num)
 {
-	int	i;
-	int	res;
-	int	neg;
+	int			i;
+	long int	res;
+	int			neg;
 
 	i = 0;
 	res = 0;
@@ -30,11 +30,11 @@ int	ft_atoi(t_stack **a, const char *num)
 		i++;
 	while (num[i] >= '0' && num[i] <= '9')
 	{
-		chk_enteros(res, num[i], neg, a);
 		res = (res * 10) + (num[i] - '0');
+		chk_enteros(res, neg, a);
 		i++;
 	}
-	return (res * neg);	
+	return (res * neg);
 }
 
 /* This function frees all the memory wich is allocated in this program
@@ -56,9 +56,9 @@ void	clean_exit(t_stack **a, t_stack **b, int e, char *msg)
 int	ft_strlen(const char *str)
 {
 	int	i;
-	
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }
@@ -67,7 +67,7 @@ int	ft_strlen(const char *str)
 int	ft_strcompare(char *s1, char *s2)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s1[i] || s2[i])
 	{

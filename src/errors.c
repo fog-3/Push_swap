@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:50:00 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/09 21:13:33 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:17:06 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	in_stack(t_stack *a, int n)
 
 /* It sees if the next digit of the string gives a int number bigger or smaller 
    than the maximun integer or the minimun integer that is posible */
-void	chk_enteros(int n, char num, int neg, t_stack **a)
+void	chk_enteros(long int n, int neg, t_stack **a)
 {
 	long int	res;
 
-	res = (long int)(n * 10) + (long int)(num - '0');
-	res *= neg;
+	res = n;
+	res *= (long int)neg;
 	if (res > 2147483647 || res < -2147483648)
 	{
 		write(2, "Error\n", 6);

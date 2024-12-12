@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:44:45 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/08 14:02:53 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:17:30 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_free(t_stack **stc);
 int		stack_len(t_stack *a);
 
 /***	Handle errors	***/
-void	chk_enteros(int n, char num, int neg, t_stack **a);
+void	chk_enteros(long int n, int neg, t_stack **a);
 void	chk_args(t_stack **a, char *str);
 void	clean_exit(t_stack **a, t_stack **b, int e);
 

@@ -51,9 +51,11 @@ $(BONUS_OBJ_DIR):
 # Limpieza de archivos
 clean:
 	rm -rf $(OBJ_DIR)
+	rm -rf $(BONUS_OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 
 re: fclean all
 

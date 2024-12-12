@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:47:18 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 18:32:38 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:57:42 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	parse_num_str(char *str, t_stack **a_stack)
 {
 	int	i;
 	int	bol;
-	
+
 	i = 0;
 	bol = 1;
 	while (str[i])
@@ -65,7 +65,6 @@ void	parse_num_str(char *str, t_stack **a_stack)
 			bol = 1;
 		i++;
 	}
-	
 }
 
 int	main(int argc, char *argv[])

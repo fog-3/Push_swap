@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 17:44:50 by fernando          #+#    #+#             */
-/*   Updated: 2024/12/11 18:29:16 by fernando         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:57:07 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	cmp_str(char *str, t_stack **a, t_stack **b)
 		rotate(b);
 	else if (!ft_strcompare(str, "rr\n"))
 		rrotate(a, b);
-	else if(!ft_strcompare(str, "rra\n"))
+	else if (!ft_strcompare(str, "rra\n"))
 		inv_rot(a);
-	else if(!ft_strcompare(str, "rrb\n"))
+	else if (!ft_strcompare(str, "rrb\n"))
 		inv_rot(b);
-	else if(!ft_strcompare(str, "rrr\n"))
+	else if (!ft_strcompare(str, "rrr\n"))
 		inv_rrot(a, b);
 	else
 		clean_exit(a, b, -1, "Error\n");
